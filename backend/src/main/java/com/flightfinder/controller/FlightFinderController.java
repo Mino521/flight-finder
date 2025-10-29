@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/flight-finder")
-//@CrossOrigin(origins = "*")  // Allow CORS (for development)
+@CrossOrigin(origins = "*")  // Allow CORS
 @RequiredArgsConstructor
 @Slf4j
 public class FlightFinderController {
