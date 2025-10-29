@@ -8,7 +8,7 @@ import { RefreshProvider } from './context/RefreshContext';
  */
 function App() {
   return (
-    <RefreshProvider>  {/* Add Provider */}
+    <RefreshProvider> 
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         {/* Header */}
         <header className="bg-white shadow-sm">

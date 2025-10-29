@@ -60,16 +60,16 @@ function handleApiError(error: unknown): Error {
     const axiosError = error as AxiosError<ApiError>;
     
     if (axiosError.response) {
-      // 服务器返回错误响应 | Server returned error response
+      // Server returned error response
       const apiError = axiosError.response.data;
       return new Error(apiError.message || 'An error occurred');
     } else if (axiosError.request) {
-      // 请求已发送但没有收到响应 | Request sent but no response
+      // Request sent but no response
       return new Error('Cannot connect to server. Please check if the backend is running.');
     }
   }
   
-  // 其他错误 | Other errors
+  // Other errors
   return new Error('An unexpected error occurred');
 }
 
