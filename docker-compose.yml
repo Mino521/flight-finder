@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # PostgreSQL 数据库 | PostgreSQL Database
+  # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
     container_name: flightfinder-postgres
@@ -21,7 +21,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # Spring Boot 后端 | Spring Boot Backend
+  # Spring Boot Backend
   backend:
     build:
       context: ./backend
@@ -45,7 +45,7 @@ services:
       retries: 3
       start_period: 40s
 
-  # React 前端 | React Frontend
+  # React Frontend
   frontend:
     build:
       context: ./frontend
