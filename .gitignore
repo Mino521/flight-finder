@@ -38,3 +38,5 @@ yarn-error.log*
 frontend/build/
 frontend/.env.local
 frontend/.env.test.local
+
+out/

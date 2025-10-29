@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { flightFinderApi } from '../services/api';
 import { SearchHistoryItem } from '../types';
+import { useRefresh } from '../context/RefreshContext';
 
 /**
  * Search History Component
@@ -9,6 +10,8 @@ const SearchHistory: React.FC = () => {
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+
+  const { refreshTrigger } = useRefresh();
 
   /**
    * Fetch search history
@@ -32,7 +35,7 @@ const SearchHistory: React.FC = () => {
    */
   useEffect(() => {
     fetchHistory();
-  }, []);
+  }, [refreshTrigger]);
 
   /**
    * Format date/time

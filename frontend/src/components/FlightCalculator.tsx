@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { flightFinderApi } from '../services/api';
 import { FlightFinderResponse } from '../types';
+import { useRefresh } from '../context/RefreshContext';
 
 /**
  * Flight Calculator Component
@@ -10,6 +11,8 @@ const FlightCalculator: React.FC = () => {
   const [result, setResult] = useState<FlightFinderResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+
+  const { triggerRefresh } = useRefresh();
 
   /**
    * Handle form submission
@@ -42,6 +45,9 @@ const FlightCalculator: React.FC = () => {
     try {
       const response = await flightFinderApi.calculateFlight(inputString);
       setResult(response);
+
+      // Trigger history refresh
+      triggerRefresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
