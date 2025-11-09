@@ -102,7 +102,6 @@ flight-finder/
 │   │   │   │       ├── repository/
 │   │   │   │       ├── entity/
 │   │   │   │       ├── dto/
-│   │   │   │       └── config/
 │   │   │   └── resources/
 │   │   └── test/
 │   ├── pom.xml
